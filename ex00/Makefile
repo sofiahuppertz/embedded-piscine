@@ -11,20 +11,20 @@ AVRDUDE			= avrdude
 
 all: hex flash
 
-dude:
-	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) -P $(PORT) -b $(BAUD)
-
 hex: main.hex
 
 main.hex: main.bin
-	$(OBJCOPY) ihex $< $@
+	$(OBJCOPY) -O ihex $< $@
 
 main.bin: main.c
 	$(CC) $(CFLAGS) $< -o $@
 
-flash:hex
-	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) -P $(PORT) -b $(BAUD) -U flash:w:$@:i
+flash: main.hex
+	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) -P $(PORT) -b $(BAUD) -U flash:w:$<:i
 
+clean:
+	rm -f main.hex main.bin
 
-.PHONY: all flash clean dude
+re: clean all
 
+.PHONY: all flash clean
