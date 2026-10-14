@@ -13,7 +13,7 @@
  *                  25 cycles per iteration */
 #define CYCLES_PER_ITERATION 25
 
-// Number of iterations for a 0.5 s delay: cycles / cycles_per_iteration
+// Iterations for a 0.5 s delay: cycles in 0.5 s / cycles per iteration
 #define HALF_SECOND_ITERATIONS (F_CPU / 2 / CYCLES_PER_ITERATION)
 
 int main(void)
@@ -24,7 +24,7 @@ int main(void)
 
     while (1) {
 
-        // Volatile keyword prevents the optimizer from removing the variable because nothing happens in the loop.
+        // volatile stops the optimizer from removing the loop, since its body is empty.
         volatile uint32_t cycles = HALF_SECOND_ITERATIONS;
         while (--cycles)
             ;
