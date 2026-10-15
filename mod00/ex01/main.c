@@ -10,7 +10,7 @@ int main(void)
 
     // Output value of bank B.
     while (1) {
-        PORTB = 1;
+        PORTB = (1 << PB0);
     }
 
     return (0);

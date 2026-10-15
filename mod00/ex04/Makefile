@@ -33,4 +33,4 @@ clean:
 
 re: clean all
 
-.PHONY: all flash clean
+.PHONY: all hex flash clean re
