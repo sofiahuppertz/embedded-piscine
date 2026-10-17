@@ -8,7 +8,7 @@ PROGRAMMER_TYPE = arduino
 PORT			?= $(firstword $(wildcard /dev/cu.usbserial-* /dev/cu.usbmodem* /dev/ttyUSB* /dev/ttyACM*))
 
 CC				= avr-gcc
-CFLAGS			= -Wall -Wextra -Os -mmcu=$(MCU)
+CFLAGS			= -Wall -Wextra -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU)
 OBJCOPY			= avr-objcopy
 OBJDUMP			= avr-objdump
 AVRDUDE			= avrdude

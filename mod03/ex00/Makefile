@@ -8,7 +8,7 @@ PROGRAMMER_TYPE = arduino
 PORT			?= $(firstword $(wildcard /dev/cu.usbserial-* /dev/cu.usbmodem* /dev/ttyUSB* /dev/ttyACM*))
 
 CC				= avr-gcc
-CFLAGS			= -Wall -Wextra -Os -mmcu=$(MCU)
+CFLAGS			= -Wall -Wextra -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU)
 OBJCOPY			= avr-objcopy
 OBJDUMP			= avr-objdump
 AVRDUDE			= avrdude
@@ -23,7 +23,7 @@ asm: main.bin
 main.hex: main.bin
 	$(OBJCOPY) -O ihex $< $@
 
-main.bin: main.c uart_utils.c uart_utils.h
+main.bin: main.c
 	$(CC) $(CFLAGS) $(filter %.c,$^) -o $@
 
 flash: main.hex

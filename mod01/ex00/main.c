@@ -1,3 +1,8 @@
+// Build constants; defined here so util/delay.h and the macros below can use them
+#ifndef F_CPU
+# define F_CPU 16000000UL
+#endif
+
 #include <avr/io.h>
 
 /* Cost of one iteration of the delay loop below, measured from the

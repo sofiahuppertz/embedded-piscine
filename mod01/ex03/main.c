@@ -1,3 +1,8 @@
+// Build constants; defined here so util/delay.h and the macros below can use them
+#ifndef F_CPU
+# define F_CPU 16000000UL
+#endif
+
 #include    <avr/io.h>
 #include    <util/delay.h>
 
@@ -66,13 +71,17 @@ int main(void) {
         uint8_t sw2 = debounced(PD4, sw2_prev);
 
         // Act on the rising edge only (pressed now, not before), so holding a button counts once
-        if (sw1 && !sw1_prev && value < 10)
+        if (sw1 && !sw1_prev && value < 10) {
             value++;
-        if (sw2 && !sw2_prev && value > 1)
+            set_ocr(DUTY_CHUNK * value - 1);
+        }
+        if (sw2 && !sw2_prev && value > 1) {
             value--;
+            set_ocr(DUTY_CHUNK * value - 1);
+        }
         sw1_prev = sw1;
         sw2_prev = sw2;
 
-        set_ocr(DUTY_CHUNK * value - 1);
+
     }
 }

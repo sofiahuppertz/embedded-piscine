@@ -49,7 +49,6 @@ void    uart_printstr(const char *str){
         uart_tx(*str);
         str++;
     }
-
 }
 
 void    timer1_init( void ) {

@@ -1,3 +1,8 @@
+// Build constants; defined here so util/delay.h and the macros below can use them
+#ifndef F_CPU
+# define F_CPU 16000000UL
+#endif
+
 #include <avr/io.h>
 
 // Timer1 ticks per second with prescaler 256: 16 MHz / 256 = 62500 (TCCR1B, Clock Select table)

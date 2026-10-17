@@ -23,3 +23,6 @@ a.out
 # Large public datasheet (33 MB, re-downloadable from microchip.com)
 ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061B.pdf
 
+
+# Local serial monitor helper, not part of the submission
+monitor.py
