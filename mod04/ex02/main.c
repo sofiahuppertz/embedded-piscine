@@ -4,7 +4,7 @@
 
 #define DEBOUNCE_TIME 50 // ms
 
-uint8_t value = 0;
+volatile uint8_t value = 0;
 
 void setup(void) {
     DDRD    &= ~((1 << PD2) | (1 << PD4)); // Cleanup DDRD
