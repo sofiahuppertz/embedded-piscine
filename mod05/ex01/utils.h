@@ -30,6 +30,6 @@ void    uart_print_hex(uint8_t v);
 # define ADC_NTC        2   // R20 on PC2 / ADC2
 
 void    adc_init(void);
-uint8_t read_adc(void);
+uint8_t read_adc(uint8_t channel);
 
 #endif

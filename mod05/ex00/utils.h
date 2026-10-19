@@ -24,10 +24,8 @@ void    uart_print_hex(uint8_t v);
 
 /* ----------------------------- ADC ------------------------------------ */
 
-// Analog inputs on the devkit (schematic nets ADC_POT / ADC_LDR / ADC_NTC): MUX3:0 values, Table 24-4
-# define ADC_POT        0   // RV1 on PC0 / ADC0
-# define ADC_LDR        1   // R14 on PC1 / ADC1
-# define ADC_NTC        2   // R20 on PC2 / ADC2
+// RV1 on PC0 / ADC0 (devkit schematic net ADC_POT): MUX3:0 = 0000, Table 24-4
+# define ADC_POT        0
 
 void    adc_init(void);
 uint8_t read_adc(void);
