@@ -26,15 +26,3 @@ void    uart_printstr(const char *str) {
     while (*str)
         uart_tx(*str++);
 }
-
-
-// 0..15 -> '0'..'9', 'a'..'f'
-static char nibble_to_hex(uint8_t n) {
-    return (n < 10) ? ('0' + n) : ('a' + n - 10);
-}
-
-// one byte as two hex digits, high nibble first
-void    uart_print_hex(uint8_t v) {
-    uart_tx(nibble_to_hex(v >> 4));
-    uart_tx(nibble_to_hex(v & 0x0F));
-}
