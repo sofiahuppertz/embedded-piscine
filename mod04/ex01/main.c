@@ -61,7 +61,7 @@ int main(void) {
     setup_timer_1();
     setup_timer_0();
 
-    sei();  // SREG I-bit (7.3.1)
+    SREG   |= (1 << SREG_I);  // Global Interrupt Enable, SREG bit 7 (7.3.1)
     while (1) {
         ;
     }

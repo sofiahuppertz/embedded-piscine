@@ -21,7 +21,7 @@ void setup(void) {
     PCICR   = (1 << PCIE2);                 // enable group 2 -> PCINT2 vector (13.2.4)
     PCIFR   = (1 << PCIF2);                 // drop any pending request (13.2.5)
 
-    sei();                                  // Activate interrupts
+    SREG    |= (1 << SREG_I);               // Global Interrupt Enable, SREG bit 7 (7.3.1)
 
 }
 

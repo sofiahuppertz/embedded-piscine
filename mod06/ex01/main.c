@@ -29,7 +29,7 @@ int main(void){
             uart_printstr("i2c error\r\n");
         }
 
-        // Sampling interval recommended by the manufacturer (AHT20 p2 footnote 5)
+        // Manufacturer recommendation: measure every 2 s so self-heating stays below 0.1 C (AHT20 p5, 2.4 Temperature Influence)
         _delay_ms(2000);
     }
 }

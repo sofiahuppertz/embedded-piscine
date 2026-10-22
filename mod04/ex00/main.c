@@ -42,7 +42,7 @@ int main(void) {
     EIMSK   = (1 << INT0);                  // enable INT0 (13.2.2)
     EIFR    = (1 << INTF0);                 // drop any pending request (13.2.3)
 
-    sei();                                  // SREG I-bit (7.3.1)
+    SREG    |= (1 << SREG_I);               // Global Interrupt Enable, SREG bit 7 (7.3.1)
 
     while (1) {
         ;
